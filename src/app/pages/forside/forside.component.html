@@ -1,0 +1,73 @@
+<header class="hero">
+   <app-nav></app-nav>
+  <h1> Vi elsker at lave brød</h1>
+
+<app-slider></app-slider>
+</header>
+<section class="news">
+  <header>
+      <h2 class="title">Vi skaber lækkert! brød</h2>
+      <p class="subTitle">Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har gennemgået
+          forandringer, når nogen har tilføjet humor eller tilfældige ord, som på ingen måde ser ægte ud</p>
+  </header>
+  <div class="interests" *ngIf="data" >
+      <article *ngFor="let item of data.news | slice:0:3; let i = index">
+          <figure>
+              <img src="../../../assets/images/brød/article{{i}}.jpg" alt="brød">
+          </figure>
+          <h3>{{item.title}}</h3>
+          <!-- <p>{{news.teaser}}</p> -->
+      </article>
+  </div>
+</section>
+<section class="newsletter">
+    <header>
+        <h3>Tilmeld dig vores nyhedsbrev</h3>
+        <p>Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver</p>
+    </header>
+
+    <form>
+      <div>
+        <form [formGroup]="newsletterForm" >
+          <label>Email</label>
+          <input  [formControl]="newsletterForm">
+          <p *ngIf="newsletterForm.hasError('email') && !newsletterForm.hasError('required')">
+            Indtast en gyltig email adresse.
+          </p>
+          <p *ngIf="newsletterForm.hasError('required')">
+            Email er  <strong>nødvendig</strong>
+          </p>
+        </form>
+        <button type="submit" id="supmit" (click)="subscribe()"  [hidden] = "!newsletterForm.valid">Tilmeld</button>
+      </div>
+    </form>
+
+
+
+</section>
+<section class="product">
+  <header>
+      <h2 class="title">Nyeste bagværk</h2>
+      <p class="subTitle">Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har gennemgået
+          forandringer, når nogen har tilføjet humor eller tilfældige ord, som på ingen måde ser ægte ud</p>
+  </header>
+  <div class="product-section" *ngIf="products">
+      <article *ngFor="let item of products.products | slice :0:8; let i = index">
+          <figure>
+              <img src="../../../assets/images/brød/{{i +1 }}.png" alt="brød">
+          </figure>
+          <div class="comments">
+              <p>23</p>
+              <span class="material-icons">
+                  message
+              </span>
+          </div>
+          <h3>HÅNDVÆRKER</h3>
+          <p class="product-description">Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har
+              gennemgået...</p>
+          <a routerLink="/product/{{item.id}}">Se mere</a>
+      </article>
+
+  </div>
+</section>
+

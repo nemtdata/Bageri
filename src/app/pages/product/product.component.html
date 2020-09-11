@@ -1,0 +1,38 @@
+
+<header class="navigation">
+  <app-nav></app-nav>
+</header>
+<main class="container">
+  <section class="breadcrumb">
+      <ul>
+          <li>Produkter</li>
+          <li>></li>
+          <li>Håndværker</li>
+      </ul>
+  </section>
+  <header class="title">
+      <div class="title-section">
+          <h3 >{{singleData.title}} </h3>
+          <h4>{{singleData.teaser}}</h4>
+      </div>
+      <div class="like">
+          <p>LIKE!</p>
+          <span class="material-icons">
+              favorite_border
+          </span>
+      </div>
+  </header>
+  <section class="description">
+      <div class="info">
+          <figure><img *ngIf="singleData.image" src="{{singleData.image.fullpath}}" alt=""></figure>
+          <p>{{singleData.description}}</p>
+      </div>
+      <div class="ingredients">
+          <h2>Ingredienser</h2>
+          <ul>
+              <li  *ngFor="let item of singleData.ingredients">
+                {{item.amount}} {{item.unit_abbr}}.{{item.ingredient_title}}
+                </li>
+          </ul>
+      </div>
+  </section>

@@ -1,0 +1,38 @@
+
+<header class="navigation">
+  <app-nav></app-nav>
+</header>
+<main class="container">
+  <header>
+      <h1>Kontakt os</h1>
+      <p>Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har gennemgået forandringer, når
+          nogen
+          har tilføjet humor eller tilfældige ord, som på ingen måde ser ægte ud</p>
+  </header>
+  <section class="contact-section">
+    <form [formGroup]="userForm" (submit)="saveUser()">
+      <label for="name">Navn</label>
+      <input formControlName="name" id="name" />
+      <control-messages [control]="userForm.get('name')"></control-messages>
+
+      <label for="email">Email</label>
+      <input formControlName="email" id="email" />
+      <control-messages [control]="userForm.get('email')"></control-messages>
+
+      <label for="profile">Besked</label>
+      <textarea formControlName="profile" id="profile"></textarea>
+      <control-messages [control]="userForm.get('profile')"></control-messages>
+
+
+      <button hidden type="submit" [hidden]="!userForm.valid">Submit</button>
+    </form>
+<article>
+  <p><span>addresse:</span> Øster uttrupvej 1 9200 aalborg</p>
+  <p><span>telefon:</span> +45 25 26 95 40</p>
+  <figure>
+      <img src="../../../assets/images/maps.jpg" alt="google maps image">
+  </figure>
+</article>
+</section>
+</main>
+

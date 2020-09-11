@@ -1,0 +1,14 @@
+
+  <app-nav></app-nav>
+
+<main>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <label class="username-label" for="username">Brugernavn</label>
+    <input type="text" name="username" id="username" formControlName="username" />
+    <label class="password-label" for="password">Kodeord</label>
+    <input type="password" name="password" id="password" formControlName="password" />
+    <button type="login">Login</button>
+  </form>
+
+
+</main>
